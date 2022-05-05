@@ -1,10 +1,10 @@
-import os.path as osp
 import glob
-from abc import ABC, ABCMeta, abstractmethod
-from typing import Callable, List, Dict
-from weakref import finalize
+import os.path as osp
+from abc import ABCMeta, abstractmethod
+from typing import List
 
 import PySimpleGUI as sg
+
 
 class Layout(metaclass=ABCMeta):
     @abstractmethod
