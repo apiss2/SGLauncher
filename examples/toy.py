@@ -1,5 +1,5 @@
 import PySimpleGUI as sg
-from PyTooSimpleGUI import App, Handler, Layout
+from SGLauncher import App, Layout, EventHandler
 
 
 class MyLayout(Layout):
@@ -14,17 +14,17 @@ class MyLayout(Layout):
         return layout
 
 
-class HelloWorldHandler(Handler):
+class HelloWorldHandler(EventHandler):
     def __init__(self, app: App, successor=None):
-        super().__init__(app, successor, event='hello')
+        super().__init__(app, successor, trigger='hello')
 
     def proc(self, values):
         sg.popup('Hello, World!')
 
 
-class GoodNightHandler(Handler):
+class GoodNightHandler(EventHandler):
     def __init__(self, app: App, successor=None):
-        super().__init__(app, successor, event='sleep')
+        super().__init__(app, successor, trigger='sleep')
 
     def proc(self, values):
         sg.popup('Good Night!')
@@ -33,6 +33,6 @@ class GoodNightHandler(Handler):
 if __name__ == '__main__':
     handlers = [HelloWorldHandler, GoodNightHandler]
     layout = MyLayout()
-    app = App('Toy App', layout, handler_list=handlers)
+    app = App('Toy App', layout, handler_list=handlers, resizable=True)
     app.run()
 
