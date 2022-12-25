@@ -1,2 +1,2 @@
-# PyTooSimpleGUI
+# SGLauncher
 PySimpleGUIをさらに簡単に利用することを目指す
